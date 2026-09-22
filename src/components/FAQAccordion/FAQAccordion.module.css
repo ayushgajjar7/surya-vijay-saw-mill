@@ -1,0 +1,162 @@
+/* ============================================================
+   FAQAccordion.module.css — Surya Vijay Saw Mill
+   ============================================================ */
+
+/* ─── Root ─────────────────────────────────────────────────── */
+.root {
+  width: 100%;
+}
+
+/* ─── Category Tabs ────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.tab:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(139, 94, 52, 0.06);
+}
+
+.tabActive {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.tabActive:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: #fff;
+}
+
+/* ─── FAQ List ─────────────────────────────────────────────── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ─── FAQ Item ─────────────────────────────────────────────── */
+.item {
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-base);
+}
+
+.item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.itemOpen {
+  background: rgba(139, 94, 52, 0.03);
+}
+
+/* ─── Question (header / trigger) ─────────────────────────── */
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+
+.question:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.questionText {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-heading);
+  line-height: 1.35;
+  flex: 1;
+  transition: color var(--transition-base);
+}
+
+.itemOpen .questionText {
+  color: var(--color-primary);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-primary);
+  font-size: 1rem;
+  transition: border-color var(--transition-base), background var(--transition-base);
+}
+
+.itemOpen .icon {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ─── Answer ───────────────────────────────────────────────── */
+.answerWrapper {
+  overflow: hidden;
+}
+
+.answer {
+  padding-bottom: 1.25rem;
+  padding-right: 3rem;
+}
+
+.answer p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+/* ─── Empty state ──────────────────────────────────────────── */
+.empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  padding: 2rem 0;
+}
+
+/* ─── Responsive ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .questionText {
+    font-size: var(--text-base);
+  }
+
+  .answer {
+    padding-right: 0.5rem;
+  }
+
+  .icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,108 @@
+.main {
+  background-color: var(--color-bg);
+}
+
+.hero {
+  background-color: var(--color-surface);
+  padding: var(--spacing-4xl) 0;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.heroTitle {
+  font-size: var(--text-5xl);
+  color: var(--color-heading);
+  margin-bottom: var(--spacing-sm);
+}
+
+.heroSubtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.contentSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+.filtersWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-3xl);
+  align-items: center;
+}
+
+.searchBox {
+  width: 100%;
+  max-width: 500px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-card);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(139, 94, 52, 0.1);
+}
+
+.categories {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categoryButton {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.categoryButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.categoryButton.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.noResults {
+  text-align: center;
+  padding: var(--spacing-4xl) 0;
+  color: var(--color-text-muted);
+}
+
+.noResults h3 {
+  font-size: var(--text-2xl);
+  color: var(--color-heading);
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--text-4xl);
+  }
+}

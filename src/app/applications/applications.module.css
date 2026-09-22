@@ -1,0 +1,49 @@
+.main {
+  background-color: var(--color-bg);
+}
+
+.ctaSection {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-surface);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.ctaContainer {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.ctaContainer h2 {
+  font-size: var(--text-3xl);
+  color: var(--color-heading);
+}
+
+.ctaContainer p {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .actions a {
+    width: 100%;
+  }
+  .actions button {
+    width: 100%;
+  }
+}

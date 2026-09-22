@@ -1,0 +1,441 @@
+/* =============================================
+   Navbar Component — Surya Vijay Saw Mill
+   ============================================= */
+
+/* ---- Base navbar ---- */
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  width: 100%;
+  transition:
+    background-color var(--transition-slow),
+    backdrop-filter var(--transition-slow),
+    box-shadow var(--transition-slow),
+    border-color var(--transition-slow);
+  border-bottom: 1px solid transparent;
+}
+
+/* Transparent (hero state) */
+.transparent {
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+
+/* Scrolled glass state */
+.scrolled {
+  background-color: var(--color-glass-strong);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom-color: var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Inner layout ---- */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0.7rem var(--container-padding);
+}
+
+/* ---- Logo ---- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.logoImg {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logoTextMain {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-heading);
+  letter-spacing: 0.01em;
+}
+
+.logoTextSub {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---- Desktop Nav ---- */
+.desktopNav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color var(--transition-base),
+    background-color var(--transition-base);
+  position: relative;
+  white-space: nowrap;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: calc(100% - 1.3rem);
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+  transform-origin: center;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+  background-color: rgba(139, 94, 52, 0.06);
+}
+
+.navLink:hover::after,
+.navLinkActive::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navLinkActive {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ---- Chevron ---- */
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+}
+
+/* ---- Dropdown ---- */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 210px;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem;
+  z-index: var(--z-dropdown);
+  overflow: hidden;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.55rem 0.85rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.dropdownItem:hover {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.dropdownItem:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* ---- Desktop Actions ---- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+/* WhatsApp icon button */
+.waIconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-whatsapp);
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-spring);
+  flex-shrink: 0;
+}
+
+.waIconBtn:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: scale(1.08);
+}
+
+.waIconBtn:focus-visible {
+  outline: 2px solid var(--color-whatsapp);
+  outline-offset: 3px;
+}
+
+/* ---- Hamburger ---- */
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition:
+    border-color var(--transition-base),
+    color var(--transition-base);
+}
+
+.hamburger:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ---- Mobile backdrop ---- */
+.mobileBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-sticky) + 1);
+  background-color: var(--color-overlay);
+}
+
+/* ---- Mobile Menu panel ---- */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(360px, 90vw);
+  z-index: calc(var(--z-sticky) + 2);
+  background-color: var(--color-card);
+  border-left: 1px solid var(--color-border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 1.25rem 2rem;
+  gap: 1.5rem;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.mobileNavItem {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.mobileNavItem:last-child {
+  border-bottom: none;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.85rem 0.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.mobileNavLink:hover {
+  color: var(--color-primary);
+}
+
+.mobileNavLinkActive {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.mobileNavLink:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.mobileChevron {
+  display: inline-flex;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.mobileSubList {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.mobileSubItem {
+  display: block;
+  padding: 0.55rem 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.mobileSubItem:hover {
+  color: var(--color-primary);
+}
+
+/* ---- Mobile controls ---- */
+.mobileControls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem 0.5rem;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobileControlRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileControlLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ---- Mobile CTAs ---- */
+.mobileCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+.mobileCtaFull {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ---- Responsive breakpoints ---- */
+@media (max-width: 1024px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoTextSub {
+    display: none;
+  }
+}

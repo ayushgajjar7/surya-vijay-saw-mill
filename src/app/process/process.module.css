@@ -1,0 +1,33 @@
+.main {
+  background-color: var(--color-bg);
+}
+
+.hero {
+  background-color: var(--color-surface);
+  padding: var(--spacing-4xl) 0;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.heroTitle {
+  font-size: var(--text-5xl);
+  color: var(--color-heading);
+  margin-bottom: var(--spacing-sm);
+}
+
+.heroSubtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contentSection {
+  /* ProcessTimeline handles its own padding */
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--text-4xl);
+  }
+}

@@ -1,0 +1,110 @@
+/* =============================================
+   SectionTitle Component — Surya Vijay Saw Mill
+   ============================================= */
+
+.sectionTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* ---- Alignment ---- */
+.align--center {
+  align-items: center;
+  text-align: center;
+}
+
+.align--left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.align--right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* ---- Eyebrow ---- */
+.eyebrowWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.align--left .eyebrowWrapper {
+  justify-content: flex-start;
+}
+
+.align--center .eyebrowWrapper {
+  justify-content: center;
+}
+
+.align--right .eyebrowWrapper {
+  justify-content: flex-end;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.line {
+  display: block;
+  height: 1px;
+  width: 2.5rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent) 40%,
+    var(--color-accent) 60%,
+    transparent
+  );
+  flex-shrink: 0;
+}
+
+/* ---- Heading ---- */
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+  font-weight: 600;
+  color: var(--color-heading);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ---- Subheading ---- */
+.subheading {
+  font-family: var(--font-body);
+  font-size: clamp(var(--text-base), 1.5vw, var(--text-lg));
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  max-width: 60ch;
+  margin: 0;
+}
+
+.align--center .subheading {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align--right .subheading {
+  margin-left: auto;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .sectionTitle {
+    gap: 0.6rem;
+  }
+
+  .line {
+    width: 1.75rem;
+  }
+}

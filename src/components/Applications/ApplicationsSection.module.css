@@ -1,0 +1,121 @@
+.section {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-surface);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.cardWrapper {
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  width: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-light);
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 4/3;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.exploreText {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: var(--text-sm);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px solid white;
+  border-radius: var(--radius-full);
+  transform: translateY(10px);
+  transition: transform var(--transition-base);
+}
+
+.card:hover .exploreText {
+  transform: translateY(0);
+}
+
+.content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex-grow: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.title {
+  font-size: var(--text-lg);
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-3xl) 0;
+  }
+}

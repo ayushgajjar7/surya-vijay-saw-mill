@@ -1,0 +1,117 @@
+.section {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-bg);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xl);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-md);
+  position: relative;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  gap: var(--spacing-md);
+}
+
+.number {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+  position: relative;
+  z-index: 2;
+  transition: all var(--transition-base);
+}
+
+.step:hover .number {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.title {
+  font-size: var(--text-lg);
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+.description {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.connector {
+  position: absolute;
+  top: 32px;
+  left: calc(50% + 32px);
+  width: calc(100% - 64px);
+  height: 2px;
+  background-color: var(--color-border);
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .timeline {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: var(--spacing-3xl);
+  }
+
+  .step:nth-child(3n) .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-3xl) 0;
+  }
+  
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xl);
+    padding-left: var(--spacing-md);
+  }
+
+  .step {
+    flex-direction: row;
+    text-align: left;
+    width: 100%;
+  }
+
+  .connector {
+    top: 64px;
+    left: 31px;
+    width: 2px;
+    height: calc(100% + var(--spacing-xl) - 64px);
+  }
+}

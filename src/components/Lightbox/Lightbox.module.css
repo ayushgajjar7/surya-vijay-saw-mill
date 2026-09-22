@@ -1,0 +1,188 @@
+/* ============================================================
+   Lightbox.module.css — Surya Vijay Saw Mill
+   ============================================================ */
+
+/* ─── Overlay ───────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ─── Panel ─────────────────────────────────────────────────── */
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 95vh;
+}
+
+/* ─── Close button ──────────────────────────────────────────── */
+.closeBtn {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.25rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ─── Counter ───────────────────────────────────────────────── */
+.counter {
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  letter-spacing: 0.05em;
+}
+
+/* ─── Image container ───────────────────────────────────────── */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Image wrapper ─────────────────────────────────────────── */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .imageWrapper {
+    height: 50vh;
+  }
+}
+
+.image {
+  object-fit: contain;
+}
+
+/* ─── Nav buttons ───────────────────────────────────────────── */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-spring);
+}
+
+.navBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.navBtn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.navBtn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.navBtnPrev {
+  left: -4rem;
+}
+
+.navBtnNext {
+  right: -4rem;
+}
+
+@media (max-width: 900px) {
+  .navBtnPrev {
+    left: 0.25rem;
+  }
+  .navBtnNext {
+    right: 0.25rem;
+  }
+  .navBtn {
+    background: rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media (max-width: 480px) {
+  .navBtn {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ─── Caption ───────────────────────────────────────────────── */
+.caption {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.captionTitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 500;
+}
+
+.captionCategory {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(194, 154, 91, 0.22);
+  border: 1px solid rgba(194, 154, 91, 0.4);
+  color: var(--color-accent-light);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

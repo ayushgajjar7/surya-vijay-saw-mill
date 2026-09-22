@@ -1,69 +1,70 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// @ts-nocheck
+import React from "react";
+import { Navbar } from "@/components/Navbar/Navbar";
+import { Footer } from "@/components/Footer/Footer";
+import { Hero } from "@/components/Hero/Hero";
+import { WoodFinder } from "@/components/WoodFinder/WoodFinder";
+import { CustomCutting } from "@/components/CustomCutting/CustomCutting";
+import { WhyChooseUs } from "@/components/WhyChooseUs/WhyChooseUs";
+import { ApplicationsSection } from "@/components/Applications/ApplicationsSection";
+import { TimberYard } from "@/components/TimberYard/TimberYard";
+import { B2BSection } from "@/components/B2BSection/B2BSection";
+import { ProcessTimeline } from "@/components/ProcessTimeline/ProcessTimeline";
+import { FinalCTA } from "@/components/FinalCTA/FinalCTA";
+import { FAQAccordion } from "@/components/FAQAccordion/FAQAccordion";
+import { LocationMap } from "@/components/LocationMap/LocationMap";
+import { ScrollProgress } from "@/components/ScrollProgress/ScrollProgress";
+import { Cursor } from "@/components/Cursor/Cursor";
+import { BackToTop } from "@/components/BackToTop/BackToTop";
+import { WhatsAppButton } from "@/components/WhatsAppButton/WhatsAppButton";
+import { MobileBottomBar } from "@/components/MobileBottomBar/MobileBottomBar";
+import { PopupForm } from "@/components/PopupForm/PopupForm";
+import { FAQS } from "@/data/faqs";
+import { SectionTitle } from "@/components/SectionTitle/SectionTitle";
 
 export default function Home() {
+  const topFaqs = FAQS.slice(0, 5);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <ScrollProgress />
+      <Cursor />
+      <Navbar />
+      
+      <main id="main-content">
+        <Hero />
+        <WoodFinder />
+        <CustomCutting />
+        <WhyChooseUs />
+        <ApplicationsSection />
+        <TimberYard />
+        <B2BSection />
+        <ProcessTimeline />
+        
+        <section style={{ padding: "var(--spacing-4xl) 0", backgroundColor: "var(--color-bg)" }}>
+          <div className="container" style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-2xl)" }}>
+            <SectionTitle 
+              eyebrow="Questions?" 
+              heading="Frequently Asked Questions" 
+              subheading="Common questions about our products and services." 
+              align="center" 
             />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div style={{ maxWidth: "800px", margin: "0 auto", width: "100%" }}>
+              <FAQAccordion faqs={topFaqs} />
+            </div>
+          </div>
+        </section>
+
+        <LocationMap />
+        <FinalCTA />
       </main>
-    </div>
+
+      <Footer />
+      
+      <WhatsAppButton />
+      <MobileBottomBar />
+      <BackToTop />
+      <PopupForm />
+    </>
   );
 }

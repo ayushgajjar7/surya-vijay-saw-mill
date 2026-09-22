@@ -1,0 +1,116 @@
+.main {
+  background-color: var(--color-bg);
+}
+
+.hero {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--spacing-5xl) 0;
+  text-align: center;
+}
+
+.eyebrow {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.heroTitle {
+  font-size: var(--text-6xl);
+  color: var(--color-bg);
+  margin-bottom: var(--spacing-md);
+}
+
+.heroSubtitle {
+  font-size: var(--text-xl);
+  color: rgba(255,255,255,0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contentSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: start;
+}
+
+.infoBox {
+  background-color: var(--color-surface);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  position: sticky;
+  top: 100px;
+}
+
+.infoBox h3 {
+  font-size: var(--text-2xl);
+  color: var(--color-heading);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  counter-reset: custom-counter;
+}
+
+.steps li {
+  position: relative;
+  padding-left: var(--spacing-2xl);
+}
+
+.steps li::before {
+  counter-increment: custom-counter;
+  content: "0" counter(custom-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: bold;
+}
+
+.steps strong {
+  display: block;
+  font-size: var(--text-base);
+  color: var(--color-heading);
+  margin-bottom: var(--spacing-xs);
+}
+
+.steps p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .infoBox {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--text-5xl);
+  }
+}

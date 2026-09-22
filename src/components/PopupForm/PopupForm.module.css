@@ -1,0 +1,199 @@
+/* ============================================================
+   PopupForm.module.css
+   ============================================================ */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  background: var(--color-overlay);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.modal {
+  position: fixed;
+  z-index: 401;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 480px);
+  border-radius: var(--radius-xl);
+  background: var(--color-glass-strong);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+/* Decorative top gradient bar */
+.topBar {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-primary) 100%
+  );
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  z-index: 2;
+}
+
+.closeBtn:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 2rem 1.75rem;
+  gap: 0.75rem;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.15;
+  margin: 0;
+  padding-right: 1.5rem; /* clear X button */
+}
+
+.subheading {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 36ch;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.quoteBtn,
+.waBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  white-space: nowrap;
+  min-width: 10rem;
+  justify-content: center;
+}
+
+.quoteBtn {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(139, 94, 52, 0.35);
+}
+
+.quoteBtn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(139, 94, 52, 0.45);
+}
+
+.quoteBtn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.waBtn {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35);
+}
+
+.waBtn:hover {
+  background: #1EBE5D;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(37, 211, 102, 0.45);
+}
+
+.waBtn:focus-visible {
+  outline: 2px solid #25D366;
+  outline-offset: 2px;
+}
+
+.dismissText {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0.25rem;
+  margin-top: 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.dismissText:hover {
+  color: var(--color-text);
+}
+
+.dismissText:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 1.5rem 1.25rem 1.5rem;
+  }
+
+  .heading {
+    font-size: var(--text-2xl);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quoteBtn,
+  .waBtn {
+    min-width: unset;
+    width: 100%;
+  }
+}

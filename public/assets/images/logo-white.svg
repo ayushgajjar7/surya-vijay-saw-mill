@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none" role="img" aria-label="Surya Vijay Saw Mill">
+  <!-- Log/Timber emblem (white version) -->
+  <g transform="translate(4, 10)">
+    <circle cx="30" cy="30" r="28" fill="white" opacity="0.1"/>
+    <circle cx="30" cy="30" r="22" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="30" cy="30" r="16" fill="none" stroke="white" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="30" cy="30" r="10" fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
+    <circle cx="30" cy="30" r="4" fill="white" opacity="0.9"/>
+    <line x1="4" y1="30" x2="56" y2="30" stroke="white" stroke-width="0.75" opacity="0.3"/>
+    <line x1="30" y1="4" x2="30" y2="56" stroke="white" stroke-width="0.75" opacity="0.3"/>
+    <path d="M 18 4 L 22 8 L 26 4 L 30 8 L 34 4 L 38 8 L 42 4" stroke="#E0BE83" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(78, 0)">
+    <text x="0" y="34" font-family="Georgia, serif" font-size="22" font-weight="700" fill="white" letter-spacing="3" text-anchor="start">SURYA VIJAY</text>
+    <line x1="0" y1="42" x2="190" y2="42" stroke="#E0BE83" stroke-width="1.5"/>
+    <text x="0" y="60" font-family="Georgia, serif" font-size="16" font-weight="400" fill="#E0BE83" letter-spacing="6" text-anchor="start">SAW MILL</text>
+    <text x="0" y="74" font-family="system-ui, sans-serif" font-size="9" font-weight="400" fill="rgba(255,255,255,0.65)" letter-spacing="1.5" text-anchor="start">AHMEDABAD · GUJARAT</text>
+  </g>
+</svg>

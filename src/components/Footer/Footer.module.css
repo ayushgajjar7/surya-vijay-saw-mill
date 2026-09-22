@@ -1,0 +1,239 @@
+.footer {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
+}
+
+.top {
+  padding: var(--spacing-4xl) 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+}
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  text-decoration: none;
+}
+
+.brandLogoImg {
+  border-radius: var(--radius-sm);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.2;
+}
+
+.brandTagline {
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.brandDesc {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  font-style: normal;
+  margin-top: var(--spacing-sm);
+}
+
+.contactItem {
+  display: flex;
+  gap: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+  align-items: flex-start;
+}
+
+.contactItem:hover {
+  color: var(--color-primary);
+}
+
+.contactIcon {
+  color: var(--color-primary);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.directionsBtn {
+  margin-top: var(--spacing-sm);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnHeading {
+  color: var(--color-heading);
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLink {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  color: var(--color-primary);
+}
+
+.bottom {
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-bg);
+}
+
+.bottomContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
+.copyright, .madeWith {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.madeWithBrand {
+  color: var(--color-heading);
+  font-weight: 500;
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.socials {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.socialWrapper {
+  position: relative;
+}
+
+.socialIcon {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 20px;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transition: color var(--transition-fast);
+}
+
+.socialIcon:hover {
+  color: var(--color-primary);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-heading);
+  color: var(--color-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  margin-bottom: 8px;
+  pointer-events: none;
+}
+
+.utilities {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4xl);
+  }
+  .brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+  .brand {
+    grid-column: span 1;
+  }
+  .bottomContainer {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+  .bottomRight {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+  }
+}
