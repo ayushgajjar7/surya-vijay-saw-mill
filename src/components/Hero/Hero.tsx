@@ -206,7 +206,7 @@ export function Hero() {
 
           {/* Main heading */}
           <motion.h1 className={styles.heading} variants={fadeUpVariant}>
-            WOOD.&nbsp;CUT&nbsp;TO YOUR&nbsp;REQUIREMENT.
+            WOOD. CUT TO YOUR REQUIREMENT.
           </motion.h1>
 
           {/* Subheading */}

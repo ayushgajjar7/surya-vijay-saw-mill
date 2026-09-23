@@ -21,12 +21,14 @@ import { MobileBottomBar } from "@/components/MobileBottomBar/MobileBottomBar";
 import { PopupForm } from "@/components/PopupForm/PopupForm";
 import { FAQS } from "@/data/faqs";
 import { SectionTitle } from "@/components/SectionTitle/SectionTitle";
+import { Loader } from "@/components/Loader/Loader";
 
 export default function Home() {
   const topFaqs = FAQS.slice(0, 5);
 
   return (
     <>
+      <Loader />
       <ScrollProgress />
       <Cursor />
       <Navbar />

@@ -28,11 +28,11 @@
 
 /* Scrolled glass state */
 .scrolled {
-  background-color: var(--color-glass-strong);
+  background-color: rgba(38, 22, 15, 0.85); /* Deep wood tone */
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border-bottom-color: var(--color-border-light);
-  box-shadow: var(--shadow-sm);
+  border-bottom-color: rgba(196, 139, 71, 0.2); /* Accent color border */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ---- Inner layout ---- */
@@ -132,6 +132,12 @@
   white-space: nowrap;
 }
 
+/* Force light text when navbar is scrolled (dark background) or transparent on home (dark hero) */
+.scrolled .navLink,
+.transparent .navLink {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .navLink::after {
   content: "";
   position: absolute;
@@ -140,7 +146,7 @@
   transform: translateX(-50%) scaleX(0);
   width: calc(100% - 1.3rem);
   height: 2px;
-  background-color: var(--color-primary);
+  background-color: var(--color-accent); /* Amber accent */
   border-radius: var(--radius-full);
   transition: transform var(--transition-base);
   transform-origin: center;
@@ -151,6 +157,12 @@
   background-color: rgba(139, 94, 52, 0.06);
 }
 
+.scrolled .navLink:hover,
+.transparent .navLink:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
 .navLink:hover::after,
 .navLinkActive::after {
   transform: translateX(-50%) scaleX(1);
@@ -159,6 +171,11 @@
 .navLinkActive {
   color: var(--color-primary);
   font-weight: 600;
+}
+
+.scrolled .navLinkActive,
+.transparent .navLinkActive {
+  color: var(--color-accent);
 }
 
 .navLink:focus-visible {
@@ -179,12 +196,12 @@
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 50%;
-  transform: translateX(-50%);
   min-width: 210px;
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
+  background-color: rgba(38, 22, 15, 0.95); /* Deep wood tone */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 139, 71, 0.2);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   list-style: none;
   margin: 0;
   padding: 0.4rem;
@@ -197,7 +214,7 @@
   padding: 0.55rem 0.85rem;
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
   border-radius: var(--radius-md);
   text-decoration: none;
   transition:
@@ -207,12 +224,12 @@
 }
 
 .dropdownItem:hover {
-  background-color: var(--color-surface);
-  color: var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-accent);
 }
 
 .dropdownItem:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-accent);
   outline-offset: -2px;
 }
 
@@ -323,11 +340,15 @@
   border-bottom: none;
 }
 
-.mobileNavLink {
+.mobileNavGroup {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.mobileNavLink {
+  flex: 1;
   padding: 0.85rem 0.5rem;
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -338,6 +359,20 @@
   cursor: pointer;
   text-decoration: none;
   transition: color var(--transition-fast);
+}
+
+.mobileChevronBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.mobileChevronBtn:hover {
+  color: var(--color-primary);
 }
 
 .mobileNavLink:hover {

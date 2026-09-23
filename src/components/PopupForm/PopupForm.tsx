@@ -116,89 +116,88 @@ export function PopupForm() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Backdrop */}
           <motion.div
             className={styles.backdrop}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            onClick={closePopup}
+            onClick={(e) => {
+              if (e.target === overlayRef.current) closePopup();
+            }}
             aria-hidden="true"
             ref={overlayRef}
-          />
-
-          {/* Modal */}
-          <motion.div
-            className={styles.modal}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="popup-heading"
-            aria-describedby="popup-subheading"
-            ref={modalRef}
-            initial={{ opacity: 0, scale: 0.88, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.88, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
           >
-            {/* Close button */}
-            <button
-              ref={closeButtonRef}
-              className={styles.closeBtn}
-              onClick={closePopup}
-              aria-label="Close popup"
+            {/* Modal */}
+            <motion.div
+              className={styles.modal}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="popup-heading"
+              aria-describedby="popup-subheading"
+              ref={modalRef}
+              initial={{ opacity: 0, scale: 0.88, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.88, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
             >
-              <FaTimes aria-hidden="true" />
-            </button>
-
-            {/* Decorative wood grain bar */}
-            <div className={styles.topBar} aria-hidden="true" />
-
-            {/* Content */}
-            <div className={styles.content}>
-              <h2 className={styles.heading} id="popup-heading">
-                Looking for the right timber?
-              </h2>
-              <p className={styles.subheading} id="popup-subheading">
-                Tell us your wood type, size and quantity — we'll help you find
-                exactly what you need.
-              </p>
-
-              <div className={styles.actions}>
-                <Link
-                  href="/quote"
-                  className={styles.quoteBtn}
-                  onClick={closePopup}
-                  aria-label="Get a timber quote"
-                >
-                  <FaFileAlt aria-hidden="true" />
-                  GET A QUOTE
-                </Link>
-
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.waBtn}
-                  onClick={closePopup}
-                  aria-label="Chat with us on WhatsApp"
-                >
-                  <FaWhatsapp aria-hidden="true" />
-                  WHATSAPP US
-                </a>
-              </div>
-
+              {/* Close button */}
               <button
-                className={styles.dismissText}
+                ref={closeButtonRef}
+                className={styles.closeBtn}
                 onClick={closePopup}
-                aria-label="Dismiss popup"
+                aria-label="Close popup"
               >
-                No thanks, I'll browse on my own
+                <FaTimes aria-hidden="true" />
               </button>
-            </div>
+
+              {/* Decorative wood grain bar */}
+              <div className={styles.topBar} aria-hidden="true" />
+
+              {/* Content */}
+              <div className={styles.content}>
+                <h2 className={styles.heading} id="popup-heading">
+                  Looking for the right timber?
+                </h2>
+                <p className={styles.subheading} id="popup-subheading">
+                  Tell us your wood type, size and quantity — we'll help you find
+                  exactly what you need.
+                </p>
+
+                <div className={styles.actions}>
+                  <Link
+                    href="/quote"
+                    className={styles.quoteBtn}
+                    onClick={closePopup}
+                    aria-label="Get a timber quote"
+                  >
+                    <FaFileAlt aria-hidden="true" />
+                    GET A QUOTE
+                  </Link>
+
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.waBtn}
+                    onClick={closePopup}
+                    aria-label="Chat with us on WhatsApp"
+                  >
+                    <FaWhatsapp aria-hidden="true" />
+                    WHATSAPP US
+                  </a>
+                </div>
+
+                <button
+                  className={styles.dismissText}
+                  onClick={closePopup}
+                  aria-label="Dismiss popup"
+                >
+                  No thanks, I'll browse on my own
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
-        </>
       )}
     </AnimatePresence>
   );

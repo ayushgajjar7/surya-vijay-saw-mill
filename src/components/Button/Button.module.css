@@ -54,30 +54,30 @@
 
 /* Primary */
 .variant--primary {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   color: #ffffff;
-  border-color: var(--color-primary);
-  box-shadow: 0 2px 8px rgba(139, 94, 52, 0.30);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(124, 71, 34, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .variant--primary:hover:not(.disabled) {
-  background-color: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
-  box-shadow: 0 4px 16px rgba(139, 94, 52, 0.40);
+  background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary) 100%);
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(124, 71, 34, 0.50), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Secondary */
 .variant--secondary {
-  background-color: var(--color-secondary);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
   color: #ffffff;
-  border-color: var(--color-secondary);
-  box-shadow: 0 2px 8px rgba(90, 58, 34, 0.25);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(155, 106, 69, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .variant--secondary:hover:not(.disabled) {
-  background-color: #4a2e18;
-  border-color: #4a2e18;
-  box-shadow: 0 4px 16px rgba(90, 58, 34, 0.35);
+  background: linear-gradient(135deg, #7a4f33 0%, var(--color-secondary) 100%);
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(155, 106, 69, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 /* WhatsApp */

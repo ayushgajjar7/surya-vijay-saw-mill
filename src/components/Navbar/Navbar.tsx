@@ -26,16 +26,18 @@ import styles from "./Navbar.module.css";
 
 /* ---- Dropdown animation variants ---- */
 const dropdownVariants = {
-  hidden: { opacity: 0, y: -8, scale: 0.97 },
+  hidden: { opacity: 0, y: -8, x: "-50%", scale: 0.97 },
   visible: {
     opacity: 1,
     y: 0,
+    x: "-50%",
     scale: 1,
     transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
   },
   exit: {
     opacity: 0,
     y: -6,
+    x: "-50%",
     scale: 0.97,
     transition: { duration: 0.15, ease: "easeIn" },
   },
@@ -85,13 +87,13 @@ function NavDropdown({ item, isActive, dropdownId }: DropdownProps) {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <button
-        type="button"
+      <Link
+        href={item.href}
         className={[styles.navLink, isActive ? styles.navLinkActive : ""].filter(Boolean).join(" ")}
         aria-haspopup="true"
         aria-expanded={open}
         aria-controls={dropdownId}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => setOpen(false)}
       >
         {item.label}
         <motion.span
@@ -102,7 +104,7 @@ function NavDropdown({ item, isActive, dropdownId }: DropdownProps) {
         >
           <FaChevronDown />
         </motion.span>
-      </button>
+      </Link>
 
       <AnimatePresence>
         {open && item.children && (
@@ -151,6 +153,7 @@ export function Navbar() {
   /* Scroll detection */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll(); // Check immediately on mount
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -190,7 +193,7 @@ export function Navbar() {
       <header
         className={[
           styles.navbar,
-          scrolled ? styles.scrolled : ((pathname === "/" || pathname === "/about") ? styles.transparent : styles.scrolled),
+          scrolled ? styles.scrolled : (pathname === "/" ? styles.transparent : styles.scrolled),
         ].join(" ")}
         role="banner"
       >
@@ -337,31 +340,41 @@ export function Navbar() {
                       const isExpanded = mobileExpanded === item.href;
                       return (
                         <li key={item.href} className={styles.mobileNavItem}>
-                          <button
-                            type="button"
-                            className={[
-                              styles.mobileNavLink,
-                              isLinkActive(item.href)
-                                ? styles.mobileNavLinkActive
-                                : "",
-                            ]
-                              .filter(Boolean)
-                              .join(" ")}
-                            aria-expanded={isExpanded}
-                            onClick={() =>
-                              setMobileExpanded(isExpanded ? null : item.href)
-                            }
-                          >
-                            {item.label}
-                            <motion.span
-                              className={styles.mobileChevron}
-                              animate={{ rotate: isExpanded ? 180 : 0 }}
-                              transition={{ duration: 0.2 }}
-                              aria-hidden="true"
+                          <div className={styles.mobileNavGroup}>
+                            <Link
+                              href={item.href}
+                              className={[
+                                styles.mobileNavLink,
+                                isLinkActive(item.href)
+                                  ? styles.mobileNavLinkActive
+                                  : "",
+                              ]
+                                .filter(Boolean)
+                                .join(" ")}
+                              onClick={closeMobile}
                             >
-                              <FaChevronDown />
-                            </motion.span>
-                          </button>
+                              {item.label}
+                            </Link>
+                            <button
+                              type="button"
+                              className={styles.mobileChevronBtn}
+                              aria-expanded={isExpanded}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setMobileExpanded(isExpanded ? null : item.href);
+                              }}
+                              aria-label="Toggle sub-menu"
+                            >
+                              <motion.span
+                                className={styles.mobileChevron}
+                                animate={{ rotate: isExpanded ? 180 : 0 }}
+                                transition={{ duration: 0.2 }}
+                                aria-hidden="true"
+                              >
+                                <FaChevronDown />
+                              </motion.span>
+                            </button>
+                          </div>
 
                           <AnimatePresence>
                             {isExpanded && (
