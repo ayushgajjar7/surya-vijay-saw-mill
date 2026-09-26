@@ -28,9 +28,6 @@ export const BUSINESS = {
 
   email: "suryavijaysaw@gmail.com",
 
-  // Placeholder until owner provides GST number
-  gst: "TO-BE-UPDATED",
-
   // Social media ?" not currently active, placeholders for future
   instagram: "",
   facebook: "",

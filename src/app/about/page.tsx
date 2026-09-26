@@ -43,8 +43,8 @@ export default function AboutPage() {
                   <span className={styles.metricLabel}>Years Experience</span>
                 </div>
                 <div className={styles.metric}>
-                  <span className={styles.metricNumber}>100%</span>
-                  <span className={styles.metricLabel}>Custom Cutting</span>
+                  <span className={styles.metricNumber}>✓</span>
+                  <span className={styles.metricLabel}>Custom Cutting Available</span>
                 </div>
               </div>
             </div>

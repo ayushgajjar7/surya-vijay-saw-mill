@@ -85,6 +85,16 @@ export function QuoteForm({ isCustomSize = false }: QuoteFormProps) {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
+      {isCustomSize && (
+        <div className={styles.exampleBox} style={{ backgroundColor: "var(--color-bg)", padding: "var(--spacing-md)", borderRadius: "var(--radius-md)", marginBottom: "var(--spacing-lg)", border: "1px solid var(--color-border)" }}>
+          <h5 style={{ margin: "0 0 var(--spacing-xs) 0", color: "var(--color-heading)", fontSize: "var(--text-sm)" }}>Example Requirement</h5>
+          <ul style={{ margin: 0, padding: "0 0 0 var(--spacing-lg)", fontSize: "var(--text-sm)", color: "var(--color-text-muted)" }}>
+            <li>Teak Wood</li>
+            <li>8 ft × 6" × 2"</li>
+            <li>Quantity: 25 pcs</li>
+          </ul>
+        </div>
+      )}
       <div className={styles.formGrid}>
         <div className={styles.fieldGroup}>
           <label htmlFor="name">Name *</label>
@@ -139,6 +149,11 @@ export function QuoteForm({ isCustomSize = false }: QuoteFormProps) {
 
       <div className={styles.dimensionsBox}>
         <h4>Dimensions (Optional)</h4>
+        {isCustomSize && (
+          <p style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)", marginBottom: "var(--spacing-md)" }}>
+            Please enter approximate dimensions if exact dimensions are not confirmed.
+          </p>
+        )}
         <div className={styles.dimensionsGrid}>
           <div className={styles.fieldGroup}>
             <label htmlFor="length">Length</label>
@@ -212,7 +227,7 @@ export function QuoteForm({ isCustomSize = false }: QuoteFormProps) {
         </Button>
         <span className={styles.or}>OR</span>
         <Button variant="whatsapp" type="button" onClick={handleWhatsApp}>
-          SEND ON WHATSAPP
+          {isCustomSize ? "SEND REQUIREMENT ON WHATSAPP" : "SEND ON WHATSAPP"}
         </Button>
       </div>
     </form>

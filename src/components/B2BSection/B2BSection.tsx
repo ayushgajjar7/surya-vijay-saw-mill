@@ -30,14 +30,11 @@ export function B2BSection() {
           <p className={styles.description}>{t.b2b.description}</p>
           
           <div className={styles.actions}>
-            <Link href="/quote" tabIndex={-1}>
-              <Button variant="primary">{t.b2b.ctaButton}</Button>
-            </Link>
             <Button 
               variant="whatsapp" 
               onClick={() => window.open(generateBulkEnquiryUrl(), '_blank')}
             >
-              <FaWhatsapp size={20} /> WHATSAPP US
+              <FaWhatsapp size={20} /> {t.b2b.ctaButton}
             </Button>
           </div>
         </motion.div>

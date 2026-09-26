@@ -38,8 +38,8 @@ export default function Home() {
         <WoodFinder />
         <CustomCutting />
         <WhyChooseUs />
-        <ApplicationsSection />
         <TimberYard />
+        <ApplicationsSection />
         <B2BSection />
         <ProcessTimeline />
         

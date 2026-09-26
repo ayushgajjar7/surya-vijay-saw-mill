@@ -46,16 +46,16 @@ export default function ContactPage() {
                   <a href={BUSINESS.phoneHref} className={styles.infoItem}>
                     <FaPhone className={styles.icon} />
                     <div>
-                      <strong>Phone</strong>
-                      <p>+91 {BUSINESS.phone}</p>
+                      <strong>Call</strong>
+                      <p>{BUSINESS.phoneFormatted}</p>
                     </div>
                   </a>
                   
-                  <a href={`https://wa.me/${BUSINESS.whatsapp}`} target="_blank" rel="noreferrer" className={styles.infoItem}>
+                  <a href={BUSINESS.whatsappHref} target="_blank" rel="noreferrer" className={styles.infoItem}>
                     <FaWhatsapp className={styles.icon} />
                     <div>
                       <strong>WhatsApp</strong>
-                      <p>+91 {BUSINESS.whatsapp}</p>
+                      <p>Chat on WhatsApp</p>
                     </div>
                   </a>
 
@@ -63,7 +63,15 @@ export default function ContactPage() {
                     <FaEnvelope className={styles.icon} />
                     <div>
                       <strong>Email</strong>
-                      <p>{BUSINESS.email}</p>
+                      <p>Send Email</p>
+                    </div>
+                  </a>
+
+                  <a href={BUSINESS.googleMapsUrl} target="_blank" rel="noreferrer" className={styles.infoItem}>
+                    <FaMapMarkerAlt className={styles.icon} />
+                    <div>
+                      <strong>Location</strong>
+                      <p>Get Directions</p>
                     </div>
                   </a>
 
@@ -82,10 +90,6 @@ export default function ContactPage() {
                       <p>Please contact us for current availability and timings.</p>
                     </div>
                   </div>
-                </div>
-
-                <div className={styles.gstBox}>
-                  <strong>GST No:</strong> {BUSINESS.gst}
                 </div>
               </div>
             </div>

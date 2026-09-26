@@ -158,38 +158,38 @@ const en = {
     subheading: "Simple steps from requirement to timber.",
     steps: [
       {
-        step: "01",
-        title: "Share Your Requirement",
+        step: "🌳",
+        title: "Share Requirement",
         description:
           "Tell us the timber type, dimensions and quantity you need — via WhatsApp, call or our form.",
       },
       {
-        step: "02",
-        title: "Wood Selection",
+        step: "🪵",
+        title: "Select Timber",
         description:
           "We help you identify the suitable timber based on your requirement and available stock.",
       },
       {
-        step: "03",
-        title: "Size Confirmation",
+        step: "📏",
+        title: "Confirm Size",
         description:
           "Confirm the dimensions, quantity and any custom cutting requirement.",
       },
       {
-        step: "04",
+        step: "⚙️",
         title: "Cutting",
         description:
           "Custom cutting is done as per your confirmed requirement.",
       },
       {
-        step: "05",
-        title: "Quote Confirmation",
+        step: "💰",
+        title: "Quote",
         description:
           "We share pricing based on your confirmed timber type, size and quantity.",
       },
       {
-        step: "06",
-        title: "Collection or Delivery",
+        step: "🚚",
+        title: "Delivery",
         description:
           "Collect from our yard or arrange delivery as per your requirement.",
       },

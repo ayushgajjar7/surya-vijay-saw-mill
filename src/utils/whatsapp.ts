@@ -8,15 +8,16 @@ export function generateWhatsAppUrl(data: WhatsAppMessageData): string {
   lines.push("");
 
   if (data.woodType) {
-    lines.push(`I need ${data.woodType}.`);
+    lines.push(`I am interested in ${data.woodType}.`);
     lines.push("");
+    lines.push(`Wood Type: ${data.woodType}`);
   }
 
   const hasDimensions = data.length || data.width || data.thickness;
   if (hasDimensions) {
     const unit = data.unit || "ft";
     const dims = [
-      data.length ? `${data.length}${unit}` : null,
+      data.length ? `${data.length} ${unit}` : null,
       data.width ? `${data.width}"` : null,
       data.thickness ? `${data.thickness}"` : null,
     ]
@@ -29,24 +30,24 @@ export function generateWhatsAppUrl(data: WhatsAppMessageData): string {
   }
 
   if (data.quantity) {
-    lines.push(`Quantity: ${data.quantity} pcs.`);
+    lines.push(`Quantity: ${data.quantity}`);
+  }
+
+  if (data.deliveryLocation) {
+    lines.push(`Delivery Location: ${data.deliveryLocation}`);
   }
 
   if (data.purpose) {
     lines.push(`Purpose: ${data.purpose}`);
   }
 
-  if (data.deliveryLocation) {
-    lines.push(`Delivery: ${data.deliveryLocation}`);
-  }
-
   if (data.message) {
     lines.push("");
-    lines.push(data.message);
+    lines.push(`Notes: ${data.message}`);
   }
 
   lines.push("");
-  lines.push("Please share price and availability.");
+  lines.push("Please share availability and price.");
   lines.push("");
   lines.push("Thank you.");
 

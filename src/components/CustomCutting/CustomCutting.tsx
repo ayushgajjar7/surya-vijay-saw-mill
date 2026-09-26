@@ -111,8 +111,7 @@ export function CustomCutting() {
 
           <p className={styles.bodyText}>
             Whether you&apos;re a carpenter, furniture maker, contractor or home owner —
-            our custom cutting service saves you time and waste. No requirement is too
-            specific. Send us your dimensions and we&apos;ll confirm availability and pricing.
+            our custom cutting service saves you time and waste. Share your requirement and we'll check the available options. Send us your dimensions and we&apos;ll confirm availability and pricing.
           </p>
 
           <div className={styles.ctaGroup}>

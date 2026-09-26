@@ -75,25 +75,35 @@ export default async function ProductDetailPage(props: { params: Promise<{ slug:
               </div>
 
               <div className={styles.featuresList}>
+                {product.availableForms && product.availableForms.length > 0 && (
+                  <div className={styles.featureItem}>
+                    <h3>Available Forms</h3>
+                    <ul>
+                      {product.availableForms.map((form, i) => (
+                        <li key={i}>{form}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
                 <div className={styles.featureItem}>
-                  <h3>Applications</h3>
+                  <h3>Suitable For</h3>
                   <ul>
                     {product.applications.map((app, i) => (
                       <li key={i}>{app}</li>
                     ))}
                   </ul>
                 </div>
-                
-                {product.features && product.features.length > 0 && (
-                  <div className={styles.featureItem}>
-                    <h3>Features</h3>
-                    <ul>
-                      {product.features.map((feat, i) => (
-                        <li key={i}>{feat}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+              </div>
+
+              <div className={styles.infoRow}>
+                <h3>Size</h3>
+                <p>{product.sizeNote}</p>
+              </div>
+
+              <div className={styles.infoRow}>
+                <h3>Price & Availability</h3>
+                <p>{product.priceNote} Contact us for current stock availability.</p>
               </div>
 
               {product.customCutting && (
@@ -115,7 +125,7 @@ export default async function ProductDetailPage(props: { params: Promise<{ slug:
                 <div className={styles.actionButtons}>
                   <a href={generateProductEnquiryUrl(product.name)} target="_blank" rel="noreferrer" tabIndex={-1}>
                     <Button variant="whatsapp" className={styles.fullButton}>
-                      <FaWhatsapp size={20} /> ENQUIRE ON WHATSAPP
+                      <FaWhatsapp size={20} /> ASK PRICE ON WHATSAPP
                     </Button>
                   </a>
                   

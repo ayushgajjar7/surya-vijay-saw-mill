@@ -14,18 +14,14 @@ export interface Product {
   available: boolean;
   featured: boolean;
   relatedSlugs?: string[];
+  availableForms?: string[];
+  priceNote?: string;
 }
 
 export type ProductCategory =
   | "Hardwood"
   | "Softwood"
-  | "Sawn Timber"
-  | "Timber Logs"
-  | "Cut-to-Size"
-  | "Specialty"
-  | "Construction"
-  | "Furniture"
-  | "Door & Window";
+  | "Specialty";
 
 export interface Application {
   id: string;

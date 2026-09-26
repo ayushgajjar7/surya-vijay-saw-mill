@@ -216,9 +216,6 @@ export function Hero() {
 
           {/* CTA buttons */}
           <motion.div className={styles.buttons} variants={fadeUpVariant}>
-            <Button variant="primary" size="lg" href="/quote">
-              GET A QUOTE
-            </Button>
             <Button
               variant="whatsapp"
               size="lg"
@@ -226,7 +223,10 @@ export function Hero() {
               target="_blank"
               aria-label="WhatsApp us"
             >
-              WHATSAPP US
+              WHATSAPP ENQUIRY
+            </Button>
+            <Button variant="primary" size="lg" href="/products">
+              EXPLORE TIMBER
             </Button>
             <Button
               variant="ghost"
