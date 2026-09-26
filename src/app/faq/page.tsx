@@ -49,7 +49,7 @@ export default function FAQPage() {
               </Link>
               <a href={generateGeneralEnquiryUrl()} target="_blank" rel="noreferrer" tabIndex={-1}>
                 <Button variant="whatsapp">
-                  <FaWhatsapp size={20} /> WHATSAPP US
+                  WHATSAPP US
                 </Button>
               </a>
               <a href={BUSINESS.phoneHref} tabIndex={-1}>

@@ -30,12 +30,12 @@ export default function Error({
             <Button variant="primary" onClick={() => reset()}>
               Try Again
             </Button>
-            <Button
-              variant="whatsapp"
-              onClick={() => window.open(generateGeneralEnquiryUrl(), "_blank")}
-            >
-              <FaWhatsapp size={20} /> WhatsApp Us
-            </Button>
+              <Button
+                variant="whatsapp"
+                onClick={() => window.open(generateGeneralEnquiryUrl(), "_blank")}
+              >
+                WhatsApp Us
+              </Button>
             <Link href="/">
               <Button variant="outline">Back to Home</Button>
             </Link>

@@ -39,7 +39,7 @@ export function FinalCTA() {
               size="lg"
               onClick={() => window.open(generateGeneralEnquiryUrl(), "_blank")}
             >
-              <FaWhatsapp size={20} /> WHATSAPP US
+              WHATSAPP US
             </Button>
             <a href={BUSINESS.phoneHref} tabIndex={-1}>
               <Button variant="outline" size="lg" className={styles.callButton}>

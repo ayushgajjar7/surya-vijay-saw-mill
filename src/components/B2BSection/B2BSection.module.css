@@ -1,7 +1,6 @@
 .section {
   padding: var(--spacing-4xl) 0;
-  background-color: var(--color-text); /* dark background */
-  color: var(--color-bg);
+  background-color: var(--color-surface);
   position: relative;
   overflow: hidden;
 }
@@ -29,18 +28,18 @@
 
 .heading {
   font-size: var(--text-5xl);
-  color: var(--color-bg);
+  color: var(--color-heading);
 }
 
 .subheading {
   font-size: var(--text-xl);
-  color: var(--color-accent-light);
+  color: var(--color-text-muted);
   font-weight: 500;
 }
 
 .description {
   font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-text);
   line-height: 1.6;
 }
 
@@ -52,10 +51,10 @@
 }
 
 .contentRight {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--color-bg);
   padding: var(--spacing-2xl);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
 }
 
 .targetList {
@@ -69,7 +68,7 @@
   align-items: center;
   gap: var(--spacing-sm);
   font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
 }
 
 .checkIcon {

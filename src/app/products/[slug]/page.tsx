@@ -125,7 +125,7 @@ export default async function ProductDetailPage(props: { params: Promise<{ slug:
                 <div className={styles.actionButtons}>
                   <a href={generateProductEnquiryUrl(product.name)} target="_blank" rel="noreferrer" tabIndex={-1}>
                     <Button variant="whatsapp" className={styles.fullButton}>
-                      <FaWhatsapp size={20} /> ASK PRICE ON WHATSAPP
+                      ASK PRICE ON WHATSAPP
                     </Button>
                   </a>
                   

@@ -34,7 +34,7 @@ export function B2BSection() {
               variant="whatsapp" 
               onClick={() => window.open(generateBulkEnquiryUrl(), '_blank')}
             >
-              <FaWhatsapp size={20} /> {t.b2b.ctaButton}
+              {t.b2b.ctaButton}
             </Button>
           </div>
         </motion.div>
